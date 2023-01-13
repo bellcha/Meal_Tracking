@@ -54,17 +54,13 @@ class NutritionalData(BaseModel):
 class NutritionalAPI:
     def __init__(self, upc_code: str) -> None:
         config = configparser.ConfigParser()
-        config.read('config.ini')
-        self._url = config['API']['Url']
-        self._host = config['API']['Host']
-        self._key = config['API']['Key']
-        self._headers = {
-            "X-RapidAPI-Key": self._key,
-            "X-RapidAPI-Host": self._host
-        }
+        config.read("config.ini")
+        self._url = config["API"]["Url"]
+        self._host = config["API"]["Host"]
+        self._key = config["API"]["Key"]
+        self._headers = {"X-RapidAPI-Key": self._key, "X-RapidAPI-Host": self._host}
         self.upc_code = upc_code
         self._querystring = {"upc": self._upc_code}
-
 
     @property
     def upc_code(self):
@@ -72,7 +68,7 @@ class NutritionalAPI:
 
     @upc_code.setter
     def upc_code(self, value):
-        if bool(re.search(r"[a-zA-Z]", value)):
+        if bool(re.search(r"\D", value)):
             raise ValueError("UPC Code can only include numbers")
         elif len(value) == 10 or len(value) == 12:
             self._upc_code = value
