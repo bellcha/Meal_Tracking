@@ -3,9 +3,13 @@ from food_data import NutritionalAPI
 
 def main():
 
-    chips = NutritionalAPI("0284000908509")
+    try:
 
-    print(chips.data)
+        chips = NutritionalAPI("02840009085!")
+
+        print(chips.data)
+    except ValueError as err:
+        print(err)
 
 
 main()

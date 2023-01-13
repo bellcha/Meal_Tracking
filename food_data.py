@@ -69,11 +69,11 @@ class NutritionalAPI:
     @upc_code.setter
     def upc_code(self, value):
         if bool(re.search(r"\D", value)):
-            raise ValueError("UPC Code can only include numbers")
+            raise ValueError("ERROR: Invaild UPC Code - can only include numbers")
         elif len(value) == 10 or len(value) == 12:
             self._upc_code = value
         else:
-            raise ValueError("UPC code must be 10 or 12 characters")
+            raise ValueError("ERROR: Invaild UPC code - must be 10 or 12 numbers")
 
     @property
     def data(self) -> NutritionalData:
