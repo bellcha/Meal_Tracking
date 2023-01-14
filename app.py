@@ -26,11 +26,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    chips = NutritionalAPI("014100053293")
+    return render_template("search.html")
 
-    return render_template("base.html", chips = chips)
-
-@app.route('/search')
+@app.route('/search', methods = ['GET'])
 def search():
     return render_template("search.html")
 
