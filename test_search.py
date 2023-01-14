@@ -5,9 +5,13 @@ def main():
 
     try:
 
-        chips = NutritionalAPI("02840009085!")
+        chips = NutritionalAPI("038000138430")
 
-        print(chips.data)
+        if chips.data.item_name is not None:
+
+            print(chips.data)
+        else:
+            print('No items found.')
     except ValueError as err:
         print(err)
 

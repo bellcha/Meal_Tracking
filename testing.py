@@ -1,6 +1,9 @@
+import json
 from food_data import NutritionalAPI
 
 
-y = NutritionalAPI(r"12345678910&")
+y = NutritionalAPI("014100053293")
 
-print(y.data)
+y_json = json.loads(y.data.json())
+
+print(json.dumps(y_json, indent=4))
