@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Tracking App</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
 <body>
 
-    <h1>Search Results</h1>
-    <h2>Brand Name:</h2>
+    <h1 class="ui header">Search Results</h1>
+    <h2 class="ui header">Brand Name:</h2>
     <p>{{form_data.data.brand_name}}</p>
 
-    <h2>Serving Size:</h2>
+    <h2 class="ui header">Serving Size:</h2>
     <p>{{form_data.data.nf_serving_size_qty}} {{form_data.data.nf_serving_size_unit}}</p>
 
-    <h2>Calories per Serving:</h2>
+    <h2 class="ui header">Calories per Serving:</h2>
     <p>{{form_data.data.nf_calories}}</p>
 </body>
 

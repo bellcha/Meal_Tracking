@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search for UPC</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
-<form action="/data" method = "POST">
-    <p>UPC <input type = "text" name = "UPC Code" /></p>
-    <p><input type = "submit" value = "Submit" /></p>
-</form>
+<form class="ui form" action="/data" method = "POST">
+  <div class="field">
+    <label>Enter the UPC Code Below:</label>
+    <input type="text" name="UPC Code" placeholder="UPC Code">
+  </div>
+  <button class="ui primary basic button" type="submit">Submit</button>
 
 </html>
