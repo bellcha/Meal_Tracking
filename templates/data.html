@@ -11,18 +11,24 @@
 </head>
 
 <body>
+    {% if form_data.data.brand_name != None %}
+    <h1 class="ui header" style="padding-left: 10px;">Search Results</h1>
+    <h2 class="ui header" style="padding-left: 10px;">Brand Name:</h2>
+    <p style="padding-left: 10px;">{{form_data.data.brand_name}}</p>
 
-    <h1 class="ui header" style="padding: 10px;">Search Results</h1>
-    <h2 class="ui header" style="padding: 10px;">Brand Name:</h2>
-    <p style="padding: 10px;">{{form_data.data.brand_name}}</p>
+    <h2 class="ui header" style="padding-left: 10px;">Serving Size:</h2>
+    <p style="padding-left: 10px;">{{form_data.data.nf_serving_size_qty}} {{form_data.data.nf_serving_size_unit}}</p>
 
-    <h2 class="ui header" style="padding: 10px;">Serving Size:</h2>
-    <p style="padding: 10px;">{{form_data.data.nf_serving_size_qty}} {{form_data.data.nf_serving_size_unit}}</p>
+    <h2 class="ui header" style="padding-left: 10px;">Calories per Serving:</h2>
+    <p style="padding-left: 10px;">{{form_data.data.nf_calories}}</p>
 
-    <h2 class="ui header" style="padding: 10px;">Calories per Serving:</h2>
-    <p style="padding: 10px;">{{form_data.data.nf_calories}}</p>
+    {% else %}
 
-    <form action="{{url_for ('search') }}" method="GET">
+    <h2 class="ui header" style="padding-left: 10px;">No Results Found!</h2>
+
+    {% endif %}
+
+    <form action="{{url_for ('search') }}" method="GET" style="padding-left: 10px;">
     <input class="ui primary basic button" type="submit" value="Go back to Search" action="{{url_for ('search') }}">
 </form>
 </body>
