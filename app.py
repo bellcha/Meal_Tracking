@@ -51,7 +51,6 @@ def usda_data():
     if request.method == 'GET':
         return f"The URL /data is accessed directly. Try going to '/form' to submit form"
     if request.method == 'POST':
-        print(request.form)
         form_data = USDA(request.form['item'], request.form['pages']).get_data()
         return render_template('usda_data.html',form_data= form_data)
 if __name__ == "__main__":
