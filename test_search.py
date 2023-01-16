@@ -11,7 +11,7 @@ def main():
 
             print(chips.data)
         else:
-            print('No items found.')
+            print("No items found.")
     except ValueError as err:
         print(err)
 

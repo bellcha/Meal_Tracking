@@ -7,9 +7,9 @@ config.read("config.ini")
 
 api_key = config["USDA"]["Key"]
 
-url = f'https://api.nal.usda.gov/fdc/v1/foods/search?api_key={api_key}'
+url = f"https://api.nal.usda.gov/fdc/v1/foods/search?api_key={api_key}"
 
-query = {"query": "Sargento provolone", "pageSize":"10"}
+query = {"query": "Sargento provolone", "pageSize": "10"}
 
 data = rq.post(url, json=query).text
 
