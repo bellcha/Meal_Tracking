@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for Food Item</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+
+<form class="ui form" action="/usda_data" method = "POST" style="padding: 10px;">
+  <div class="field">
+    <label>Enter Search Term Below:</label>
+    <input type="text" name="item" placeholder="Item">
+  </div>
+  <div class="field">
+    <label>Enter Search Limits</label>
+    <input type="text" name="pages" placeholder="Pages">
+  </div>
+  <button class="ui primary basic button" type="submit" style="padding-top: 10px;">Submit</button>
+
+</html>

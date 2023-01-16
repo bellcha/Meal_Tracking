@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 #from flask_sqlalchemy import SQLAlchemy
 from food_data import NutritionalAPI
+from usda import USDA
 
 app = Flask(__name__)
 
@@ -41,6 +42,17 @@ def data():
         return render_template('data.html',form_data= form_data)
 
 
+@app.route('/usda', methods = ['GET'])
+def usda():
+    return render_template("usda.html")
 
+@app.route('/usda_data/', methods = ['POST', 'GET'])
+def usda_data():
+    if request.method == 'GET':
+        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+    if request.method == 'POST':
+        print(request.form)
+        form_data = USDA(request.form['item'], request.form['pages']).get_data()
+        return render_template('usda_data.html',form_data= form_data)
 if __name__ == "__main__":
     app.run(port=5000)
