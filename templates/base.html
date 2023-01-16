@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Tracking App</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
-<body>
-
-    <h1>Meal Tracking App</h1>
-    <p>{{chips.data.brand_name}}</p>
-
-</body>
-
+    <form action="/search" method="GET" style="padding: 10px;">
+    <input class="ui primary basic button" type="submit" value="Click here to Search by UPC Number" action="{{url_for ('search') }}">
+    </form>
+    
+    <form action="/usda" method="GET" style="padding-left: 10px;" style="padding-top: 10px;">
+    <input class="ui primary basic button" type="submit" value="Click here to Search USDA" action="{{url_for ('usda') }}">
+    </form>
 </html>
