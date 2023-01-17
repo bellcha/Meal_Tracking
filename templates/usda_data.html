@@ -13,22 +13,24 @@
 <body>
     <h1 class="ui header" style="padding-left: 10px;">Search Results</h1>
     {%for f in form_data.foods%}
-    <h2 class="ui header" style="padding-left: 10px;">Brand Name:</h2>
-    <p style="padding-left: 10px;">{{f.brand_name}}</p>
+        {%if f.brand_name != None %}
+            <h2 class="ui header" style="padding-left: 10px;">Brand Name:</h2>
+            <p style="padding-left: 10px;">{{f.brand_name}}</p>
 
-    <h2 class="ui header" style="padding-left: 10px;">Description:</h2>
-    <p style="padding-left: 10px;">{{f.description}}</p>
+            <h2 class="ui header" style="padding-left: 10px;">Description:</h2>
+            <p style="padding-left: 10px;">{{f.description}}</p>
     
-    <h2 class="ui header" style="padding-left: 10px;">Serving Size:</h2>
-    <p style="padding-left: 10px;">{{f.serving_size}} {{f.serving_size_unit}}</p>
+            <h2 class="ui header" style="padding-left: 10px;">Serving Size:</h2>
+            <p style="padding-left: 10px;">{{f.serving_size}} {{f.serving_size_unit}}</p>
 
-    <h2 class="ui header" style="padding-left: 10px;">Nutrional Facts:</h2>
+            <h2 class="ui header" style="padding-left: 10px;">Nutrional Facts:</h2>
 
-        {%for n in f.food_nutrients%}
+                {%for n in f.food_nutrients%}
 
-        <p style="padding-left: 10px;">{{n.nutrient_name}}: {{n.nutrient_number}} {{n.unit_name}}</p>
+                <p style="padding-left: 10px;">{{n.nutrient_name}}: {{n.value}} {{n.unit_name}}</p>
 
-        {%endfor%}
+                {%endfor%}
+        {% endif %}
 
     {%endfor%}
 
