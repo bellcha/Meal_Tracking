@@ -3,6 +3,7 @@ from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
 import configparser
 import requests as rq
+from requests.adapters import HTTPAdapter, Retry
 
 
 class FoodSearchCriteria(BaseModel):
@@ -116,7 +117,12 @@ class USDA:
     def get_data(self) -> Model:
 
         query = {"query": self.item, "pageSize": self.pages}
+        session = rq.Session()
+        retry = Retry(connect=3, backoff_factor=0.5)
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount("http://", adapter)
+        session.mount("https://", adapter)
 
-        data = rq.post(USDA.url, json=query).json()
+        data = session.post(USDA.url, json=query).json()
 
         return Model(**data)
